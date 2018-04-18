@@ -11,13 +11,14 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
+import Pages.BugReport;
 import Pages.LoginSite;
 import Pages.PageUser;
 import Suporte.Web;
 //import io.github.bonigarcia.wdm.WebDriverManager;
 
 //@RunWith(DataDrivenTestRunner.class)
-//@DataLoader(filePaths = "CadastrarUmBugNoSite_e.csv")
+//@DataLoader(filePaths = "CadastrarUmBugNoSite.csv")
 public class ReportMantisPageObjectsTest {
 
 	static WebDriver navegador;
@@ -47,8 +48,6 @@ public class ReportMantisPageObjectsTest {
 	}
 	
 	
-		
-	
 	@Test 
 	public void CadastrarUmBugNoSite(
 //			@Param(name="category_id")String tipo1,
@@ -65,9 +64,9 @@ public class ReportMantisPageObjectsTest {
 //			@Param(name="steps_to_reproduce")String tipo12,
 //			@Param(name="additional_info")String tipo13
 			) throws Exception{
-//		PageUser xx = 
 				new PageUser(navegador)
 				.clicarnoReport();
+				//new BugReport(navegador)
 				//.typeReporte(tipo1, tipo2, tipo3,tipo4, tipo5, tipo6, tipo7,tipo8,tipo9,tipo10,tipo11,tipo12,tipo13);	
 
 				//		xx.clicarnoReport().typeReporte("[All Projects] General", "sometimes", "trivial", "urgent", "Desktop Windows 10", 
