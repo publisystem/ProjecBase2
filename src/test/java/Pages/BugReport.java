@@ -5,7 +5,9 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import Suporte.Screenshot;
 
@@ -78,8 +80,11 @@ public class BugReport {
 		return this;
 	}
 	
-	public BugReport acoesInternnasReport(){
+	public BugReport acoesInternasReport(){
+		
 		String caminho = "C:/Users/Melquiades/Pictures/icon/icon.PNG";
+//		String caminho = "/Project_Report_Mantis/extras/icon.PNG";
+
 		try {
 			navegador.findElement(By.id("ufile[]")).sendKeys(caminho);
 		} catch (Exception e) {
@@ -91,17 +96,29 @@ public class BugReport {
 
 		WebElement ckeckBtn2 = navegador.findElement(By.id("report_stay"));
 		ckeckBtn2.click();
+		
+		WebElement Btn3 = navegador.findElement(By.xpath("/html/body/div[3]/form/table/tbody/tr[16]/td[2]/input"));
+		Btn3.click();
+		navegador.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		new Screenshot().TirarPrint();	
 	
 		return this;
 	}
 
 	public PageViewIssues submeterBug() {
-
-		new Screenshot().TirarPrint();
-		WebElement Btn3 = navegador.findElement(By.xpath("/html/body/div[3]/form/table/tbody/tr[16]/td[2]/input"));
-		Btn3.click();
-	
-		return new PageViewIssues();
+		
+		WebDriverWait stopmin = new WebDriverWait(navegador, 10);
+		stopmin.until(ExpectedConditions.elementToBeClickable(By.linkText("View Issues")));
+		try {
+			navegador.findElement(By.id("View Issues")).click();
+		} catch (Exception e) {
+			
+		}finally {
+			navegador.findElement(By.linkText("Report Issue")).click();
+		}
+		
+		return new PageViewIssues(navegador);
+		
 	}
 
 }
