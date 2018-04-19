@@ -1,5 +1,6 @@
 package Pages;
 
+import org.easetech.easytest.annotation.Param;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,15 +23,21 @@ public class PageUser {
 		return navegador.findElement(By.xpath("/html/body/table[1]/tbody/tr/td[1]/span[1]")).getText();
 	}
 	
-
-	public BugReport clicarnoReport() throws Exception{
+	
+	public BugReport clicarnoReport() {
 		
 		WebDriverWait stopmin = new WebDriverWait(navegador, 10);
 		stopmin.until(ExpectedConditions.elementToBeClickable(By.linkText("Report Issue")));
 		
-		navegador.findElement(By.linkText("Report Issue")).click();
-		
+		try {
+			navegador.findElement(By.linkText("Report Issue")).click();
+		} catch (Exception e) {
+			System.out.println("Não encontra Reportar Bugs!! ");
+		}finally {
+			navegador.findElement(By.linkText("Report Issue")).click();
+		}
 		return new BugReport(navegador);
+		
 	}
 
 }

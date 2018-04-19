@@ -36,8 +36,8 @@ public class LoginSite {
 		return new PageUser(navegador);
 	}
 	
-	public void deslogar() {
-		navegador.findElement(By.linkText("Logout")).click();
-	}
+//	public void deslogar() {
+//		navegador.findElement(By.linkText("Logout")).click();
+//	}
 
 }
