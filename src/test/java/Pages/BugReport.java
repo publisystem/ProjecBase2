@@ -107,15 +107,16 @@ public class BugReport {
 
 	public PageViewIssues submeterBug() {
 		
-		WebDriverWait stopmin = new WebDriverWait(navegador, 10);
-		stopmin.until(ExpectedConditions.elementToBeClickable(By.linkText("View Issues")));
-		try {
-			navegador.findElement(By.id("View Issues")).click();
-		} catch (Exception e) {
-			
-		}finally {
-			navegador.findElement(By.linkText("Report Issue")).click();
-		}
+//      Implementar para teste CT_003		
+//		WebDriverWait stopmin = new WebDriverWait(navegador, 10);
+//		stopmin.until(ExpectedConditions.elementToBeClickable(By.linkText("View Issues")));
+//		try {
+//			navegador.findElement(By.id("View Issues")).click();
+//		} catch (Exception e) {
+//			
+//		}finally {
+//			navegador.findElement(By.linkText("Report Issue")).click();
+//		}
 		
 		return new PageViewIssues(navegador);
 		

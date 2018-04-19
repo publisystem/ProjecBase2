@@ -26,16 +26,15 @@ public class PageUser {
 	
 	public BugReport clicarnoReport() {
 		
-		WebDriverWait stopmin = new WebDriverWait(navegador, 10);
+		WebDriverWait stopmin = new WebDriverWait(navegador, 20);
 		stopmin.until(ExpectedConditions.elementToBeClickable(By.linkText("Report Issue")));
 		
 		try {
 			navegador.findElement(By.linkText("Report Issue")).click();
 		} catch (Exception e) {
 			System.out.println("Não encontra Reportar Bugs!! ");
-		}finally {
-			navegador.findElement(By.linkText("Report Issue")).click();
 		}
+		
 		return new BugReport(navegador);
 		
 	}

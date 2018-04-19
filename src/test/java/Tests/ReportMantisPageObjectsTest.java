@@ -31,10 +31,10 @@ public class ReportMantisPageObjectsTest {
 
 	@After
 	public void tearDown() throws Exception {
-		navegador.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		if (navegador != null) {
-			navegador.quit();
-		}
+//		navegador.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//		if (navegador != null) {
+//			navegador.quit();
+//		}
 	}
 
 	// Script de teste 01 Validade dados ao logar de um determinado usuario
